@@ -5,11 +5,26 @@
     android:layout_height="match_parent"
     tools:context=".navigationBar.FragmentAccount">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="ACCOUNT Fragment"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:text="Se Connecter"
+            android:textSize="14sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:text="Créer mon Compte"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
 
 </RelativeLayout>
