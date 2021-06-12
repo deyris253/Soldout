@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends MainActivity {
     ImageButton yHomeBtn;
@@ -66,5 +67,16 @@ public class Login extends MainActivity {
 
 
         ySignUpBtn.setOnClickListener(v1 -> startActivity(new Intent(getApplicationContext(), Signup.class)));
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = fireAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
+    private void updateUI(FirebaseUser user) {
+
     }
 }
