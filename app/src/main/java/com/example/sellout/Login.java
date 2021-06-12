@@ -22,6 +22,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Login extends MainActivity {
     ImageButton yHomeBtn;
     EditText yEmail, yPassword;
@@ -51,14 +54,30 @@ public class Login extends MainActivity {
 
             if (TextUtils.isEmpty(eMail)) {
                 yEmail.setError("Veuillez indiquer votre email.");
-            }
 
-            if (TextUtils.isEmpty(pw)) {
+            } else if (!isValidEmail(eMail)) {
+                yEmail.setError("L'adresse email n'est pas valide");
+
+            } else if (TextUtils.isEmpty(pw)) {
                 yPassword.setError("Veuillez indiquer votre mot de passe.");
-            }
 
-            if (pw.length() < 8) {
+            } else if (pw.length() < 7) {
                 yPassword.setError("Le mot de passe doit contenir au moins 8 caractères.");
+
+            } else {
+
+                fireAuth.signInWithEmailAndPassword(eMail, pw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (task.isSuccessful()) {
+                            startActivity(new Intent(Login.this, MainActivity.class));
+                            finish();
+                        }
+
+                    }
+                });
+
             }
 
 
@@ -69,14 +88,12 @@ public class Login extends MainActivity {
         ySignUpBtn.setOnClickListener(v1 -> startActivity(new Intent(getApplicationContext(), Signup.class)));
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = fireAuth.getCurrentUser();
-        updateUI(currentUser);
-    }
+    private boolean isValidEmail(String eMail) {
 
-    private void updateUI(FirebaseUser user) {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(eMail);
+        return matcher.matches();
 
     }
 }

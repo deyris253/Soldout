@@ -57,25 +57,25 @@ public class Signup extends AppCompatActivity {
 
 
             if (TextUtils.isEmpty((nom))) {
-                Toast.makeText(this,"Votre nom est requis pour l'inscription.", Toast.LENGTH_SHORT).show();
+                yFullName.setError("Votre nom est requis pour l'inscription.");
 
             } else if (TextUtils.isEmpty((prenom))) {
-                Toast.makeText(this,"Votre prénom est requis pour l'inscription.", Toast.LENGTH_SHORT).show();
+                yName.setError("Votre prénom est requis pour l'inscription.");
 
             } else if (TextUtils.isEmpty(eMail)) {
-                Toast.makeText(this, "Votre email est requis pour l'inscription.", Toast.LENGTH_SHORT).show();
+                yEmail.setError("Votre email est requis pour l'inscription.");
 
             } else if (!isValidEmail(eMail)) {
-                Toast.makeText(this, "L'adresse email n'est pas valide", Toast.LENGTH_SHORT).show();
+                yEmail.setError("L'adresse email n'est pas valide");
 
             } else if (TextUtils.isEmpty(pw)) {
-                Toast.makeText(this,"La création d'un mot de passe est requise pour l'inscription.", Toast.LENGTH_SHORT).show();
+                yPassword.setError("La création d'un mot de passe est requise pour l'inscription.");
 
             } else if (pw.length() < 7) {
-                Toast.makeText(this, "Votre mot de passe doit contenir au moins 8 caractères.", Toast.LENGTH_SHORT).show();
+                yPassword.setError("Votre mot de passe doit contenir au moins 8 caractères.");
 
             } else if (!confirmPw.equals(pw)) {
-                Toast.makeText(this, "Les deux mots de passe ne sont pas identiques.", Toast.LENGTH_SHORT).show();
+                yConfirmPassword.setError("Les deux mots de passe ne sont pas identiques.");
 
             } else {
 
@@ -109,14 +109,4 @@ public class Signup extends AppCompatActivity {
         return matcher.matches();
 
     }
-
-    /*@Override
-    public void onStart(){
-        super.onStart();
-        FirebaseUser currentUser = yAuth.getCurrentUser();
-        if (currentUser != null) {
-
-        }
-    }
-    */
 }
