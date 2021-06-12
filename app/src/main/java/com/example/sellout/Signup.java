@@ -83,7 +83,7 @@ public class Signup extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(Signup.this, Login.class));
+                            startActivity(new Intent(Signup.this, AccountCreated.class));
                             finish();
                         }
                     }

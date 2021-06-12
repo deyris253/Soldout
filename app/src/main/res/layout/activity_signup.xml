@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Vous avez déjà un compte?"
-            android:textSize="16sp"/>
+            android:textSize="15sp"/>
 
         <Button
             android:id="@+id/loginButton"

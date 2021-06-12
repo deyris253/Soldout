@@ -73,6 +73,8 @@ public class Login extends MainActivity {
                         if (task.isSuccessful()) {
                             startActivity(new Intent(Login.this, MainActivity.class));
                             finish();
+                        } else {
+                            Toast.makeText(Login.this, "Email et/ou mot de passe non reconnu", Toast.LENGTH_LONG).show();
                         }
 
                     }
