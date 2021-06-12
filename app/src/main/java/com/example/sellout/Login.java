@@ -1,5 +1,6 @@
 package com.example.sellout;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -12,13 +13,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sellout.navigationBar.FragmentHome;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends MainActivity {
     ImageButton yHomeBtn;
     EditText yEmail, yPassword;
     Button yLoginBtn, ySignUpBtn;
+    FirebaseAuth fireAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,7 @@ public class Login extends MainActivity {
         yEmail = findViewById(R.id.email);
         yPassword = findViewById(R.id.password);
         yLoginBtn = findViewById(R.id.loginButton);
+        fireAuth = FirebaseAuth.getInstance();
         ySignUpBtn = findViewById(R.id.signupButton);
 
 
@@ -51,6 +59,9 @@ public class Login extends MainActivity {
             if (pw.length() < 8) {
                 yPassword.setError("Le mot de passe doit contenir au moins 8 caractères.");
             }
+
+
+
         });
 
 
