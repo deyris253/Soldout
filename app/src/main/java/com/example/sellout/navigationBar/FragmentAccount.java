@@ -71,38 +71,20 @@ public class FragmentAccount extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_account, container, false);
+        View c = inflater.inflate(R.layout.fragment_account, container, false);
 
         loginBtn = v.findViewById(R.id.loginButton);
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), Login.class));
-            }
-        });
+        loginBtn.setOnClickListener(v12 -> startActivity(new Intent(getActivity(), Login.class)));
 
 
         signupBtn = v.findViewById(R.id.signupButton);
 
-        signupBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), Signup.class));
-            }
-        });
+        signupBtn.setOnClickListener(v1 -> startActivity(new Intent(getActivity(), Signup.class)));
+
 
         return v;
     }
-
-   /* public void login(View v){
-        startActivity(new Intent(getActivity(), Login.class));
-    }
-
-    public void signup(View v){
-        startActivity(new Intent(getContext(), Signup.class));
-    }
-
-    */
 
 
 }

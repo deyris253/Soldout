@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import com.example.sellout.navigationBar.FragmentAccount;
 import com.example.sellout.navigationBar.FragmentCart;
 import com.example.sellout.navigationBar.FragmentHome;
-import com.example.sellout.navigationBar.FragmentSettings;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,9 +40,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.account:
                         frag = new FragmentAccount();
                         break;
-
-                    case R.id.settings:
-                        frag = new FragmentSettings();
 
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.mainLayout, frag).commit();
