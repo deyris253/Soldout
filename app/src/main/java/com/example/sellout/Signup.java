@@ -58,21 +58,24 @@ public class Signup extends AppCompatActivity {
 
             if (TextUtils.isEmpty((nom))) {
                 yFullName.setError("Votre nom est requis pour l'inscription.");
+            }
 
-            } else if (TextUtils.isEmpty((prenom))) {
+            if (TextUtils.isEmpty((prenom))) {
                 yName.setError("Votre prénom est requis pour l'inscription.");
+            }
 
-            } else if (TextUtils.isEmpty(eMail)) {
+            if (TextUtils.isEmpty(eMail)) {
                 yEmail.setError("Votre email est requis pour l'inscription.");
 
             } else if (!isValidEmail(eMail)) {
-                yEmail.setError("L'adresse email n'est pas valide");
+                yEmail.setError("L'adresse email n'est pas valide.");
+            }
 
-            } else if (TextUtils.isEmpty(pw)) {
+            if (TextUtils.isEmpty(pw)) {
                 yPassword.setError("La création d'un mot de passe est requise pour l'inscription.");
 
             } else if (pw.length() < 7) {
-                yPassword.setError("Votre mot de passe doit contenir au moins 8 caractères.");
+                yPassword.setError("Votre mot de passe doit contenir au moins 7 caractères.");
 
             } else if (!confirmPw.equals(pw)) {
                 yConfirmPassword.setError("Les deux mots de passe ne sont pas identiques.");
