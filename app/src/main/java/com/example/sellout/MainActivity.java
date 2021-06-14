@@ -21,10 +21,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .replace(R.id.mainLayout, FragmentHome.class, null)
+                    .commit();
+        }
+
         BottomNavigationView bottomNavig = findViewById(R.id.bottomNav);
 
-        // bottomNavig.setSelectedItemId(R.id.account);
+        //bottomNavig.setSelectedItemId(R.id.FragAcc);
 
+        // bottomNavig.getMenu().getItem(1).setChecked(true);
+
+        Fragment frag = new FragmentHome();
 
         bottomNavig.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -47,7 +57,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.mainLayout, frag).commit();
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.mainLayout, frag)
+                        .commit();
                 return true;
             }
         });
