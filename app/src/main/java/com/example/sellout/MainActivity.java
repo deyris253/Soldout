@@ -30,12 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavig = findViewById(R.id.bottomNav);
 
-        //bottomNavig.setSelectedItemId(R.id.FragAcc);
-
-        // bottomNavig.getMenu().getItem(1).setChecked(true);
-
-        Fragment frag = new FragmentHome();
-
         bottomNavig.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -1,6 +1,7 @@
 package com.example.sellout;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Login extends MainActivity {
+public class Login extends AppCompatActivity {
     ImageButton yHomeBtn;
     EditText yEmail, yPassword;
     Button yLoginBtn, ySignUpBtn;
@@ -57,18 +58,15 @@ public class Login extends MainActivity {
 
             } else {
 
-                fireAuth.signInWithEmailAndPassword(eMail, pw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                fireAuth.signInWithEmailAndPassword(eMail, pw).addOnCompleteListener(task -> {
 
-                        if (task.isSuccessful()) {
-                            startActivity(new Intent(Login.this, MainActivity.class));
-                            finish();
-                        } else {
-                            Toast.makeText(Login.this, "Email et/ou mot de passe non reconnu", Toast.LENGTH_LONG).show();
-                        }
-
+                    if (task.isSuccessful()) {
+                        startActivity(new Intent(Login.this, MainActivity.class));
+                        finish();
+                    } else {
+                        Toast.makeText(Login.this, "Email et/ou mot de passe non reconnu", Toast.LENGTH_LONG).show();
                     }
+
                 });
 
             }
