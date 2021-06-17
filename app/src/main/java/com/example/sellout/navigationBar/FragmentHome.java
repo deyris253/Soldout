@@ -1,5 +1,6 @@
 package com.example.sellout.navigationBar;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.sellout.Articles;
 import com.example.sellout.R;
 
 /**

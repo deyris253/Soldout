@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sellout">
-        <activity android:name=".AccountCreated"></activity>
+        <activity android:name=".Articles"></activity>
+        <activity android:name=".AccountCreated" />
         <activity android:name=".Signup" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity">

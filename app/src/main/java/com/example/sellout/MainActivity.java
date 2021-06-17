@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .setReorderingAllowed(true)
+                    .setReorderingAllowed(false)
                     .replace(R.id.mainLayout, FragmentHome.class, null)
                     .commit();
         }
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.mainLayout, frag)
+                        .setReorderingAllowed(true)
                         .commit();
                 return true;
             }

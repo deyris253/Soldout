@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.sellout.navigationBar.FragmentAccount;
+import com.example.sellout.navigationBar.FragmentHome;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,6 +31,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         yHomeBtn = findViewById(R.id.homeBtn);
         yEmail = findViewById(R.id.email);
@@ -64,7 +67,7 @@ public class Login extends AppCompatActivity {
                         startActivity(new Intent(Login.this, MainActivity.class));
                         finish();
                     } else {
-                        Toast.makeText(Login.this, "Email et/ou mot de passe non reconnu", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login.this, "Email et/ou mot de passe non reconnu(s)", Toast.LENGTH_LONG).show();
                     }
 
                 });
