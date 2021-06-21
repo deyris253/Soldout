@@ -17,8 +17,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.selling.R;
+import com.example.selling.adaptations.HomeCategoryAdapter;
 import com.example.selling.adaptations.ProductAdapters;
 import com.example.selling.databinding.FragmentHomeBinding;
+import com.example.selling.models.CategoriesHome;
 import com.example.selling.models.ProductModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,11 +33,14 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    RecyclerView productRec;
+    RecyclerView productRec, catHomeRec;
     FirebaseFirestore db;
 
     List<ProductModel> productModelList;
     ProductAdapters productAdapters;
+
+    List<CategoriesHome> categoriesHomeList;
+    HomeCategoryAdapter homeCategoryAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -45,6 +50,7 @@ public class HomeFragment extends Fragment {
 
 
         productRec = root.findViewById(R.id.all_products);
+        catHomeRec = root.findViewById(R.id.every_category);
 
         productRec.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
         productModelList = new ArrayList<>();
@@ -69,6 +75,31 @@ public class HomeFragment extends Fragment {
                         }
                     }
                 });
+
+        catHomeRec.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
+        categoriesHomeList = new ArrayList<>();
+        homeCategoryAdapter = new HomeCategoryAdapter(getActivity(), categoriesHomeList);
+        catHomeRec.setAdapter(homeCategoryAdapter);
+
+        db.collection("CategoriesInHome")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                 CategoriesHome categoriesHome = document.toObject(CategoriesHome.class);
+                                categoriesHomeList.add(categoriesHome);
+                                homeCategoryAdapter.notifyDataSetChanged();
+                            }
+                        } else {
+
+                            Toast.makeText(getActivity(), "Errooooooooor"+task.getException(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
 
         return root;
     }
