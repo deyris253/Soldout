@@ -3,6 +3,7 @@ package com.example.selling.models;
 public class ProductModel {
     String name;
     String description;
+    String price;
     String type;
     String img_url;
 
@@ -10,9 +11,10 @@ public class ProductModel {
 
     }
 
-    public ProductModel(String name, String description, String type, String img_url) {
+    public ProductModel(String name, String description, String price, String type, String img_url) {
         this.name = name;
         this.description = description;
+        this.price = price;
         this.type = type;
         this.img_url = img_url;
     }
@@ -31,6 +33,14 @@ public class ProductModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getType() {

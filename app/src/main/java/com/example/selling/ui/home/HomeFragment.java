@@ -49,9 +49,13 @@ public class HomeFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
 
 
+
+
         productRec = root.findViewById(R.id.all_products);
         catHomeRec = root.findViewById(R.id.every_category);
 
+
+        // Product Items
         productRec.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
         productModelList = new ArrayList<>();
         productAdapters = new ProductAdapters(getActivity(), productModelList);
@@ -76,6 +80,8 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
+
+        // Category Items
         catHomeRec.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
         categoriesHomeList = new ArrayList<>();
         homeCategoryAdapter = new HomeCategoryAdapter(getActivity(), categoriesHomeList);
@@ -89,7 +95,7 @@ public class HomeFragment extends Fragment {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                 CategoriesHome categoriesHome = document.toObject(CategoriesHome.class);
+                                CategoriesHome categoriesHome = document.toObject(CategoriesHome.class);
                                 categoriesHomeList.add(categoriesHome);
                                 homeCategoryAdapter.notifyDataSetChanged();
                             }
