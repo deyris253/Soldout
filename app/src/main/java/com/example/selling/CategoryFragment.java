@@ -13,9 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.selling.adaptations.NavCategoryAdapter;
-import com.example.selling.adaptations.ProductAdapters;
 import com.example.selling.models.NavCategoryModel;
-import com.example.selling.models.ProductModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -39,7 +37,7 @@ public class CategoryFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_category, container, false);
 
         db = FirebaseFirestore.getInstance();
-        recyclerView = root.findViewById(R.id.every_category);
+        recyclerView = root.findViewById(R.id.every_category_recycler);
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));

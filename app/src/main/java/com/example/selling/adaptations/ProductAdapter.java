@@ -18,12 +18,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class ProductAdapters extends RecyclerView.Adapter<ProductAdapters.ViewHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
     private Context context;
     private List<ProductModel> productModelList;
 
-    public ProductAdapters(Context context, List<ProductModel> productModelList) {
+    public ProductAdapter(Context context, List<ProductModel> productModelList) {
         this.context = context;
         this.productModelList = productModelList;
     }
@@ -40,6 +40,7 @@ public class ProductAdapters extends RecyclerView.Adapter<ProductAdapters.ViewHo
         holder.name.setText(productModelList.get(position).getName());
         holder.description.setText(productModelList.get(position).getDescription());
         holder.price.setText(productModelList.get(position).getPrice());
+
     }
 
     @Override

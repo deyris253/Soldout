@@ -1,25 +1,19 @@
 package com.example.selling.ui.home;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.selling.R;
 import com.example.selling.adaptations.HomeCategoryAdapter;
-import com.example.selling.adaptations.ProductAdapters;
-import com.example.selling.databinding.FragmentHomeBinding;
+import com.example.selling.adaptations.ProductAdapter;
 import com.example.selling.models.CategoriesHome;
 import com.example.selling.models.ProductModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,7 +31,7 @@ public class HomeFragment extends Fragment {
     FirebaseFirestore db;
 
     List<ProductModel> productModelList;
-    ProductAdapters productAdapters;
+    ProductAdapter productAdapter;
 
     List<CategoriesHome> categoriesHomeList;
     HomeCategoryAdapter homeCategoryAdapter;
@@ -51,15 +45,15 @@ public class HomeFragment extends Fragment {
 
 
 
-        productRec = root.findViewById(R.id.all_products);
-        catHomeRec = root.findViewById(R.id.every_category);
+        productRec = root.findViewById(R.id.all_products_recycler);
+        catHomeRec = root.findViewById(R.id.every_category_recycler);
 
 
         // Product Items
         productRec.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
         productModelList = new ArrayList<>();
-        productAdapters = new ProductAdapters(getActivity(), productModelList);
-        productRec.setAdapter(productAdapters);
+        productAdapter = new ProductAdapter(getActivity(), productModelList);
+        productRec.setAdapter(productAdapter);
 
         db.collection("Products")
                 .get()
@@ -71,7 +65,7 @@ public class HomeFragment extends Fragment {
 
                                 ProductModel productModel = document.toObject(ProductModel.class);
                                 productModelList.add(productModel);
-                                productAdapters.notifyDataSetChanged();
+                                productAdapter.notifyDataSetChanged();
                             }
                         } else {
 
