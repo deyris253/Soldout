@@ -1,6 +1,7 @@
 package com.example.selling.adaptations;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.selling.DetailedProduct;
 import com.example.selling.R;
 import com.example.selling.models.ProductModel;
 
@@ -40,6 +42,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.name.setText(productModelList.get(position).getName());
         holder.description.setText(productModelList.get(position).getDescription());
         holder.price.setText(productModelList.get(position).getPrice());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailedProduct.class);
+                intent.putExtra("name", productModelList.get(position).getName());
+                context.startActivity(intent);
+            }
+        });
 
     }
 

@@ -2,6 +2,7 @@ package com.example.selling;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,11 +29,18 @@ public class ViewProduct extends AppCompatActivity {
     RecyclerView recyclerView;
     ProductAdapter productAdapter;
     List<ProductModel> productModelList;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_product);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 
         db = FirebaseFirestore.getInstance();
         String type = getIntent().getStringExtra("type");
@@ -58,4 +66,5 @@ public class ViewProduct extends AppCompatActivity {
                 });
 
     }
+
 }

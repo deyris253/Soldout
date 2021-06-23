@@ -5,11 +5,15 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Selling"
         android:title="@string/app_name">
-        <activity android:name=".ViewProduct"></activity>
+        <activity
+            android:name=".DetailedProduct"
+            android:parentActivityName=".ViewProduct"/>
+        <activity
+            android:name=".ViewProduct"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".AccountCreated" />
         <activity android:name=".SignUp" />
         <activity android:name=".Login" />

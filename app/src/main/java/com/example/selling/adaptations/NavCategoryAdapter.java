@@ -1,6 +1,7 @@
 package com.example.selling.adaptations;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.selling.R;
+import com.example.selling.ViewProduct;
 import com.example.selling.models.NavCategoryModel;
 
 import org.jetbrains.annotations.NotNull;
@@ -39,6 +41,15 @@ public class NavCategoryAdapter extends RecyclerView.Adapter<NavCategoryAdapter.
 
         Glide.with(context).load(navCategoryModelList.get(position).getImg_url()).into(holder.imageView);
         holder.categoryName.setText(navCategoryModelList.get(position).getCategory_name());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ViewProduct.class);
+                intent.putExtra("type", navCategoryModelList.get(position).getType());
+                context.startActivity(intent);
+            }
+        });
 
     }
 

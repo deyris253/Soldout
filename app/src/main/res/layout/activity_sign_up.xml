@@ -70,6 +70,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Je crée mon compte"
+        android:textAllCaps="false"
         android:layout_marginBottom="200px"/>
 
     <TextView
@@ -82,7 +83,8 @@
             android:id="@+id/loginButton"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="Se Connecter à mon compte"/>
+            android:text="Se Connecter à mon compte"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 
