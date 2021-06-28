@@ -1,4 +1,4 @@
-package com.example.selling;
+package com.example.selling.ui.category;
 
 import android.os.Bundle;
 
@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.selling.R;
 import com.example.selling.adaptations.NavCategoryAdapter;
 import com.example.selling.models.NavCategoryModel;
 import com.google.android.gms.tasks.OnCompleteListener;

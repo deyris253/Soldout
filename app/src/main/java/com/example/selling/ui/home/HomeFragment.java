@@ -43,8 +43,6 @@ public class HomeFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
 
 
-
-
         productRec = root.findViewById(R.id.all_products_recycler);
         catHomeRec = root.findViewById(R.id.every_category_recycler);
 

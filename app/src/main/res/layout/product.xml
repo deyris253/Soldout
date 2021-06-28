@@ -42,7 +42,7 @@
                 android:id="@+id/product_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Prix"
+                android:text="15"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"

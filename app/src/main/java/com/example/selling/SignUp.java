@@ -90,7 +90,7 @@ public class SignUp extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            startActivity(new Intent(SignUp.this, AccountCreated.class));
+                            startActivity(new Intent(SignUp.this, Login.class));
                             finish();
 
                             UserModel user = new UserModel(eMail, pw);

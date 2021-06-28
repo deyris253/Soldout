@@ -33,6 +33,7 @@ public class DetailedProduct extends AppCompatActivity {
 
     ImageView detailedImg;
     TextView name, description, price;
+    int totalPrice = 0;
     Button addToCart;
 
     RecyclerView recyclerView;
@@ -71,6 +72,8 @@ public class DetailedProduct extends AppCompatActivity {
             name.setText(productModel.getName());
             description.setText(productModel.getDescription());
             price.setText(productModel.getPrice());
+
+            //totalPrice = productModel.getPrice();
         }
 
         addToCart = findViewById(R.id.addToCart);
@@ -97,8 +100,8 @@ public class DetailedProduct extends AppCompatActivity {
 
         final HashMap<String, Object> cartMap = new HashMap<>();
 
-        cartMap.put("Nom du produit", productModel.getName());
-        cartMap.put("Prix du produit", productModel.getPrice());
+        cartMap.put("productName", productModel.getName());
+        cartMap.put("productPrice", productModel.getPrice());
         cartMap.put("Date actuelle", saveCurrentDate);
         cartMap.put("Heure actuelle", saveCurrentTime);
 
@@ -108,6 +111,7 @@ public class DetailedProduct extends AppCompatActivity {
             public void onComplete(@NonNull @NotNull Task<DocumentReference> task) {
 
                 Toast.makeText(DetailedProduct.this, "Le produit a bien été ajouté au panier", Toast.LENGTH_LONG).show();
+                finish();
 
             }
         });

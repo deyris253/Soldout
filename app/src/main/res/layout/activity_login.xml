@@ -43,6 +43,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Se connecter"
+        android:backgroundTint="@color/teal_700"
         android:textAllCaps="false"
         android:layout_marginBottom="200px"/>
 
@@ -56,6 +57,7 @@
             android:id="@+id/signupButton"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
             android:textAllCaps="false"
             android:text="Créer mon compte"/>
 

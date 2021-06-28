@@ -8,6 +8,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Selling"
         android:title="@string/app_name">
+        <activity android:name=".MainActivity"/>
         <activity
             android:name=".ViewProduct"
             android:parentActivityName=".MainActivity" />
@@ -16,9 +17,8 @@
             android:parentActivityName=".ViewProduct"/>
         <activity android:name=".AccountCreated" />
         <activity android:name=".SignUp" />
-        <activity android:name=".Login" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Login"
             android:label="@string/app_name"
             android:theme="@style/Theme.Selling.NoActionBar">
             <intent-filter>
