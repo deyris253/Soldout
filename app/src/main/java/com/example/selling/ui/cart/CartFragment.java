@@ -76,7 +76,13 @@ public class CartFragment extends Fragment {
 
                 if (task.isSuccessful()) {
                     for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
+
+                        String documentId = documentSnapshot.getId();
+
                         CartModel cartModel = documentSnapshot.toObject(CartModel.class);
+
+                        cartModel.setDocumentId(documentId);
+
                         cartModelList.add(cartModel);
                         cartAdapter.notifyDataSetChanged();
                     }

@@ -5,6 +5,7 @@ public class CartModel {
     String productName;
     String productPrice;
     int totalPrice;
+    String documentId;
 
     public CartModel() {
     }
@@ -13,6 +14,14 @@ public class CartModel {
         this.productName = productName;
         this.productPrice = productPrice;
         this.totalPrice = totalPrice;
+    }
+
+    public String getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
     }
 
     public String getProductName() {
