@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.selling.models.UserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -91,11 +92,14 @@ public class SignUp extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             startActivity(new Intent(SignUp.this, Login.class));
+                            Toast.makeText(SignUp.this, "Votre compte a bien été créé", Toast.LENGTH_LONG).show();
                             finish();
 
                             UserModel user = new UserModel(eMail, pw);
                             String id = task.getResult().getUser().getUid();
                             yDB.getReference().child("Clients").child(id).setValue(user);
+                        } else {
+                            Toast.makeText(SignUp.this, "Votre compte n'a pas été créé", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

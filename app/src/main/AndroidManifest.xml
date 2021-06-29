@@ -14,7 +14,7 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DetailedProduct"
-            android:parentActivityName=".ViewProduct"/>
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".AccountCreated" />
         <activity android:name=".SignUp" />
         <activity
